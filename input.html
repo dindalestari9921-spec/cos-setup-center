@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Transaksi Pallet - CoS Development Center</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- QR Scanner Library (Kamera HP/Webcam) -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <!-- SweetAlert2 (Modal Pop-up Cantik) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen py-4 sm:py-8 px-3 sm:px-4 flex items-center justify-center">
+
+    <div class="w-full max-w-lg bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-slate-200 overflow-hidden">
+        <!-- Header Form -->
+        <div class="bg-gradient-to-r from-blue-700 to-indigo-700 p-5 sm:p-6 text-white text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-2 sm:mb-3 backdrop-blur-sm">
+                <i class="fa-solid fa-layer-group text-xl sm:text-2xl text-white"></i>
+            </div>
+            <h2 class="text-lg sm:text-xl font-extrabold tracking-tight">Input Transaksi Pallet</h2>
+            <p class="text-[11px] sm:text-xs text-blue-100 mt-0.5">CoS Development Center Digital Portal</p>
+        </div>
+
+       <!-- Form Body -->
+<form id="pallet-form" class="p-4 sm:p-6 space-y-3 sm:space-y-4" autocomplete="off">
+    
+    <!-- Scanner Camera Box (HP) -->
+    <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Scan QR Code Pallet (Kamera HP)</label>
+        <div id="reader" class="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50"></div>
+    </div>
+
+    <!-- QR Code Input (Scanner Fisik / Ketik Manual) -->
+    <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">QR Code / Barcode (Scanner Fisik / Manual)</label>
+        <div class="relative">
+            <input type="text" id="qr_code" required autocomplete="off"
+                class="w-full pl-10 pr-4 py-2.5 sm:py-3 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-mono font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+            <i class="fa-solid fa-qrcode absolute left-3.5 top-3.5 sm:top-4 text-slate-400 text-sm"></i>
+        </div>
+    </div>
+
+    <!-- Model & Size Grid -->
+    <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+        <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Model Shoe</label>
+            <input type="text" id="model" autocomplete="off"
+                class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+        </div>
+        <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Size</label>
+            <input type="text" id="size" autocomplete="off"
+                class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+        </div>
+    </div>
+
+    <!-- Process -->
+    <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Process</label>
+        <input type="text" id="process" autocomplete="off"
+            class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+    </div>
+
+    <!-- Requester -->
+    <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Requester</label>
+        <input type="text" id="requester" autocomplete="off"
+            class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+    </div>
+
+    <!-- Status & Progress Grid -->
+    <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+        <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Status Transaksi</label>
+            <select id="status" class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+                <option value="Ordered">Ordered (Pesan)</option>
+                <option value="Picked Up">Picked Up (Ambil)</option>
+                <option value="Borrowed">Borrowed (Pinjam)</option>
+                <option value="Returned">Returned (Kembali)</option>
+            </select>
+        </div>
+        <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Pallet Progress</label>
+            <select id="progress" class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+                <option value="Preparation">Preparation</option>
+                <option value="Ready">Ready</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Location -->
+    <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Location / Building</label>
+        <input type="text" id="location" autocomplete="off"
+            class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+    </div>
+
+    <!-- Remark -->
+    <div>
+        <label class="block text-xs font-bold text-slate-700 mb-1">Remark</label>
+        <input type="text" id="remark" autocomplete="off"
+            class="w-full px-3 py-2 sm:py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition-all">
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" id="submit-btn" 
+        class="w-full py-3 sm:py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl text-xs sm:text-sm tracking-wide shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 mt-2">
+        <i class="fa-solid fa-paper-plane text-xs"></i>
+        <span>Simpan Transaksi</span>
+    </button>
+</form>
+    </div>
+
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbz3S0KuYPhuEBKhNor0ldetkHdklEQQDUCX6q6HyXwHhRGbL0uzUPwmyWrG7I6ppK-6ew/exec';
+
+        // Memory Cache Lokal biar auto-fill INSTAN
+        let cachedMasterData = [];
+
+        // Pre-load data di awal
+        async function preloadMasterData() {
+            try {
+                const res = await fetch(API_URL + "?action=getMasterPallet");
+                const data = await res.json();
+                if (Array.isArray(data)) {
+                    cachedMasterData = data;
+                }
+            } catch (err) {
+                console.log("Preload error:", err);
+            }
+        }
+
+        preloadMasterData();
+
+        // Inisialisasi Scanner Kamera HP
+        const html5QrcodeScanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: 180 });
+        html5QrcodeScanner.render((decodedText) => {
+            document.getElementById('qr_code').value = decodedText;
+            fetchAndAutofill(decodedText);
+        });
+
+        // Event Listener Scanner Fisik / Ketikan Manual
+        const qrInput = document.getElementById('qr_code');
+        
+        ['input', 'change', 'blur'].forEach(eventType => {
+            qrInput.addEventListener(eventType, function() {
+                const code = this.value.trim();
+                if (code.length >= 3) {
+                    fetchAndAutofill(code);
+                }
+            });
+        });
+
+        qrInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Mencegah submit tidak sengaja dari scanner fisik
+                const code = this.value.trim();
+                if (code.length >= 3) {
+                    fetchAndAutofill(code);
+                }
+            }
+        });
+
+        function getProp(obj, keys) {
+            for (let k of keys) {
+                if (obj[k] !== undefined && obj[k] !== null && obj[k] !== '') {
+                    return obj[k];
+                }
+            }
+            return '';
+        }
+
+        // Fungsi Auto-Fill Instan
+        async function fetchAndAutofill(qrCode) {
+            if (!qrCode) return;
+
+            if (cachedMasterData.length === 0) {
+                await preloadMasterData();
+            }
+
+            const found = cachedMasterData.find(item => {
+                const itemCode = String(getProp(item, ['QR Code', 'QR', 'Barcode'])).trim().toLowerCase();
+                return itemCode === qrCode.trim().toLowerCase();
+            });
+
+            if (found) {
+                const modelVal = getProp(found, ['Model', 'Model Shoe']);
+                const sizeVal = getProp(found, ['Size']);
+                const processVal = getProp(found, ['Process']);
+                const requesterVal = getProp(found, ['Last Requester', 'Requester']);
+                const locationVal = getProp(found, ['Current Location', 'Building', 'Location']);
+
+                if (modelVal) document.getElementById('model').value = modelVal;
+                if (sizeVal) document.getElementById('size').value = sizeVal;
+                if (processVal) document.getElementById('process').value = processVal;
+                if (requesterVal) document.getElementById('requester').value = requesterVal;
+                const statusVal = document.getElementById('status').value;
+                if (locationVal) document.getElementById('location').value = locationVal;
+
+                // Modal Notifikasi DI TENGAH LAYAR (Compatible HP & Desktop)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Ditemukan!',
+                    html: `Form untuk <b>${qrCode.toUpperCase()}</b> berhasil diisi otomatis.`,
+                    timer: 1500,
+                    showConfirmButton: false,
+                    confirmButtonColor: '#2563eb',
+                    customClass: {
+                        popup: 'rounded-3xl p-5 font-sans shadow-2xl max-w-xs sm:max-w-sm mx-auto',
+                        title: 'text-lg font-bold text-slate-800',
+                        htmlContainer: 'text-xs text-slate-600'
+                    }
+                });
+            }
+        }
+
+        // Submit Form
+        document.getElementById('pallet-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> <span>Menyimpan Data...</span>`;
+            btn.disabled = true;
+
+            const qrValue = document.getElementById('qr_code').value;
+
+            const params = new URLSearchParams({
+                QR_Code: "COS-" + Math.random().toString(36).substring(2, 8).toUpperCase(),
+                QR: qrValue,
+                Model: document.getElementById('model').value,
+                Size: document.getElementById('size').value,
+                Process: document.getElementById('process').value,
+                Requester: document.getElementById('requester').value,
+                Status: document.getElementById('status').value,
+                Pallet_Progress: document.getElementById('progress').value,
+                Building: document.getElementById('location').value,
+                Remark: document.getElementById('remark').value
+            });
+
+            fetch(API_URL + "?" + params.toString(), { mode: 'no-cors' })
+                .then(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil Disimpan!',
+                        text: 'Data transaksi pallet telah tercatat ke Google Sheets.',
+                        confirmButtonColor: '#2563eb',
+                        confirmButtonText: 'Selesai',
+                        customClass: {
+                            popup: 'rounded-3xl p-6 font-sans max-w-xs sm:max-w-sm mx-auto',
+                            title: 'text-xl font-bold text-slate-800',
+                            htmlContainer: 'text-xs text-slate-600',
+                            confirmButton: 'px-6 py-2.5 rounded-xl font-semibold text-xs shadow-md'
+                        }
+                    });
+                    document.getElementById('pallet-form').reset();
+                    preloadMasterData();
+                })
+                .catch(err => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Gagal Menyimpan',
+                        text: 'Terjadi kesalahan sistem: ' + err,
+                        confirmButtonColor: '#ef4444'
+                    });
+                })
+                .finally(() => {
+                    btn.innerHTML = `<i class="fa-solid fa-paper-plane text-xs"></i> <span>Simpan Transaksi</span>`;
+                    btn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>

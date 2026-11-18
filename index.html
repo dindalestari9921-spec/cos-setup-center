@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoS Setup Center - Pallet Preparation & Management System</title>
+    <title>CoS Development Center - Pallet Preparation & Management System</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/Logo.png">
+    <link rel="shortcut icon" type="image/png" href="img/Logo.png?v=1">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -29,10 +32,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- JsBarcode Library -->
-    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <!-- QRCode.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        /* Custom Background Grid Textures */
         .bg-grid-pattern {
             background-size: 30px 30px;
             background-image: 
@@ -51,7 +53,7 @@
                     <i class="fa-solid fa-layer-group text-lg"></i>
                 </div>
                 <div>
-                    <span class="font-bold text-lg tracking-tight text-corporate-dark">CoS Setup Center</span>
+                    <span class="font-bold text-lg tracking-tight text-corporate-dark">CoS Development Center</span>
                     <span class="block text-xs text-corporate-muted font-medium">Manufacturing Digital Portal</span>
                 </div>
             </div>
@@ -74,20 +76,18 @@
 
     <!-- 1. Ultra Modern Hero Section -->
     <section class="relative overflow-hidden py-24 lg:py-32 bg-white border-b border-slate-200 bg-grid-pattern">
-        <!-- Radial Glow Overlay Decorative Elements -->
         <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center relative z-10">
-            <!-- Hero Left Content -->
             <div class="lg:col-span-7 space-y-7">
                 <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/60 text-corporate-blue text-xs font-bold tracking-wide uppercase shadow-sm">
                     <span class="w-2 h-2 rounded-full bg-corporate-blue"></span>
                     <span>Manufacturing Excellence Initiative</span>
                 </div>
                 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-corporate-dark leading-[1.15]">
-                    CoS Setup <span class="text-transparent bg-clip-text bg-gradient-to-r from-corporate-blue to-indigo-600">Center</span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-corporate-dark leading-[1.15] whitespace-nowrap">
+                 CoS Development <span class="text-transparent bg-clip-text bg-gradient-to-r from-corporate-blue to-indigo-600">Center</span>
                 </h1>
                 
                 <p class="text-xl sm:text-2xl font-semibold text-corporate-blue/90 tracking-tight">
@@ -109,25 +109,19 @@
                     </a>
                 </div>
 
-                <!-- Quick Highlight Tags -->
                 <div class="pt-6 border-t border-slate-200/80 flex flex-wrap items-center gap-6 text-xs text-corporate-muted font-medium">
                     <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Minimized Downtime Prep</span>
-                    <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Barcode Traceability</span>
+                    <span class="flex items-center gap-2"><i class="fa-solid fa-qrcode text-emerald-500"></i> QR Code Traceability</span>
                     <span class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i> Centralized Hub</span>
                 </div>
             </div>
 
-            <!-- Hero Right Visual Card (Redesigned Border & Styling) -->
             <div class="lg:col-span-5 relative">
                 <div class="relative group">
-                    <!-- Soft Glow Background Behind Image Card -->
                     <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-3xl blur-md opacity-25 group-hover:opacity-40 transition duration-500"></div>
-                    
-                    <!-- Main Image Frame -->
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-white border border-slate-200/80 p-1.5">
                         <div class="relative rounded-xl overflow-hidden w-full aspect-[4/3] bg-slate-900">
                             <img src="img/Hero.jpeg" alt="Manufacturing Setup Area" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                            <!-- Subtle Ambient Gradient Layer over Image -->
                             <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
                         </div>
                     </div>
@@ -150,27 +144,13 @@
                     </div>
                     <h3 class="text-xl font-bold text-corporate-dark mb-4">Operational Bottlenecks</h3>
                     <ul class="space-y-4 text-corporate-muted text-sm">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
-                            <span>Setup activities are still performed directly on the production line, disrupting regular operations.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
-                            <span>High machine downtime rate during tool and material adjustment processes.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
-                            <span>Repeated pallet trials due to the lack of centralized pre-production validation.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
-                            <span>Long preparation lead times and difficulty in accurately monitoring pallet inventory.</span>
-                        </li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i><span>Pallet preparation occurred late during the CS3 stage, causing readiness delays right before mass production.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i><span>High risk of production downtime due to unready or unvalidated pallets.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i><span>Repeated pallet trials required during late-stage development due to lack of early centralized validation.</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i><span>Long lead times in pallet fabrication and difficulty in tracking pallet readiness.</span></li>
                     </ul>
                 </div>
-                <div class="pt-6 border-t border-slate-100 text-xs text-corporate-muted italic">
-                    * Resulting in cumulative daily output efficiency losses.
-                </div>
+                <div class="pt-6 border-t border-slate-100 text-xs text-corporate-muted italic">* Resulting in cumulative daily output efficiency losses.</div>
             </div>
 
             <div class="bg-corporate-blue text-white p-8 rounded-2xl shadow-lg space-y-6 flex flex-col justify-between">
@@ -178,28 +158,15 @@
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-white/10 text-white text-xs font-semibold mb-4">
                         <i class="fa-solid fa-circle-check"></i> Modern Solution
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">CoS Setup Center Transformation</h3>
-                    <p class="text-blue-100 text-sm leading-relaxed mb-6">
-                        Establishing a dedicated centralized area for preparation, rigorous validation, systematic inventory management, and structured borrowing workflows.
-                    </p>
+                    <h3 class="text-xl font-bold text-white mb-4">CoS Development Center Transformation</h3>
+                    <p class="text-blue-100 text-sm leading-relaxed mb-6">Establishing a dedicated centralized area for preparation, rigorous validation, systematic inventory management, and structured borrowing workflows.</p>
                     <div class="space-y-3 text-sm text-blue-50">
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-emerald-400"></i>
-                            <span>Complete separation between setup areas and active production floors.</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-emerald-400"></i>
-                            <span>Digital tracking using integrated barcode identification systems.</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i class="fa-solid fa-check text-emerald-400"></i>
-                            <span>Standardized pallet quality assurance prior to machine line entry.</span>
-                        </div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i><span>Shifted pallet creation to the CS1 stage for early readiness and zero line delay.</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i><span>Digital tracking using integrated QR Code identification systems.</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-emerald-400"></i><span>Standardized pallet quality assurance prior to machine line entry.</span></div>
                     </div>
                 </div>
-                <div class="pt-6 border-t border-blue-600/50 text-xs text-blue-200 font-medium">
-                    Manufacturing Excellence Standard Initiative
-                </div>
+                <div class="pt-6 border-t border-blue-600/50 text-xs text-blue-200 font-medium">Manufacturing Excellence Standard Initiative</div>
             </div>
         </div>
     </section>
@@ -213,44 +180,32 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="p-6 rounded-2xl border border-slate-200 bg-corporate-light hover:border-corporate-blue transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-clock-rotate-left"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-clock-rotate-left"></i></div>
                     <h3 class="font-bold text-corporate-dark mb-2">Reduce Production Downtime</h3>
-                    <p class="text-sm text-corporate-muted leading-relaxed">Move pallet setup and validation activities from the production line to a CoS Setup Center, significantly minimizing machine downtime during model pallet setup.</p>
+                    <p class="text-sm text-corporate-muted leading-relaxed">Move pallet development to the CS1 stage within the CoS Development Center, ensuring pallets are fully validated before mass production to prevent machine downtime.</p>
                 </div>
                 <div class="p-6 rounded-2xl border border-slate-200 bg-corporate-light hover:border-corporate-blue transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-gauge-high"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-gauge-high"></i></div>
                     <h3 class="font-bold text-corporate-dark mb-2">Improve Production Readiness</h3>
                     <p class="text-sm text-corporate-muted leading-relaxed">Ensure every pallet is fully assembled, validated, and production-ready before delivery to the production line, enabling faster and smoother production startup.</p>
                 </div>
                 <div class="p-6 rounded-2xl border border-slate-200 bg-corporate-light hover:border-corporate-blue transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-list-check"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-list-check"></i></div>
                     <h3 class="font-bold text-corporate-dark mb-2">Standardize Work Flow</h3>
                     <p class="text-sm text-corporate-muted leading-relaxed">Establish standardized pallet preparation, setup, and validation procedures to ensure consistent quality and reduce setup variations across all production lines.</p>
                 </div>
                 <div class="p-6 rounded-2xl border border-slate-200 bg-corporate-light hover:border-corporate-blue transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-magnifying-glass-chart"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
                     <h3 class="font-bold text-corporate-dark mb-2">Improve Pallet Traceability</h3>
-                    <p class="text-sm text-corporate-muted leading-relaxed">Track every pallet through barcode identification, including preparation, borrowing, return, and current location for complete operational visibility.</p>
+                    <p class="text-sm text-corporate-muted leading-relaxed">Track every pallet through QR Code identification, including preparation, borrowing, return, and current location for complete operational visibility.</p>
                 </div>
                 <div class="p-6 rounded-2xl border border-slate-200 bg-corporate-light hover:border-corporate-blue transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-desktop"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-desktop"></i></div>
                     <h3 class="font-bold text-corporate-dark mb-2">Real-time Inventory Monitoring</h3>
                     <p class="text-sm text-corporate-muted leading-relaxed">Monitor pallet availability, storage location, borrowing status, and return records in real time through a centralized digital inventory management system.</p>
                 </div>
                 <div class="p-6 rounded-2xl border border-slate-200 bg-corporate-light hover:border-corporate-blue transition-all group">
-                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-bolt"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-white text-corporate-blue shadow-sm flex items-center justify-center text-lg mb-4 group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-bolt"></i></div>
                     <h3 class="font-bold text-corporate-dark mb-2">Faster Model Implementation</h3>
                     <p class="text-sm text-corporate-muted leading-relaxed">Accelerate new model implementation by preparing and validating pallets in advance, allowing production lines to start with minimal setup time and fewer trial activities.</p>
                 </div>
@@ -266,31 +221,25 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
-                <div class="w-14 h-14 rounded-xl bg-blue-50 text-corporate-blue flex items-center justify-center text-xl shrink-0">
-                    <i class="fa-solid fa-stopwatch"></i>
-                </div>
+                <div class="w-14 h-14 rounded-xl bg-blue-50 text-corporate-blue flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-stopwatch"></i></div>
                 <div>
-                    <span class="text-2xl font-bold text-corporate-dark block">75%</span>
+                    <span class="text-2xl font-bold text-corporate-dark block">77.5%</span>
                     <h4 class="font-semibold text-corporate-dark text-sm">Reduce Downtime</h4>
                     <p class="text-xs text-corporate-muted">Significant decrease in machine stoppages.</p>
-                    <p class="text-[11px] text-corporate-blue font-semibold mt-1">Avg. Baseline Downtime 4 hours to 1 hour</p>
+                    <p class="text-[11px] text-corporate-blue font-semibold mt-1">Avg. Baseline Downtime 4 hours to 0.9 hour</p>
                 </div>
             </div>
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
-                <div class="w-14 h-14 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
-                    <i class="fa-solid fa-chart-line"></i>
-                </div>
+                <div class="w-14 h-14 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-chart-line"></i></div>
                 <div>
-                    <span class="text-2xl font-bold text-corporate-dark block">74.5%</span>
+                    <span class="text-2xl font-bold text-corporate-dark block">75.8%</span>
                     <h4 class="font-semibold text-corporate-dark text-sm">Reduce Lost Output</h4>
                     <p class="text-xs text-corporate-muted">Prevent production losses from lengthy setups.</p>
-                    <p class="text-[11px] text-emerald-600 font-semibold mt-1">Avg. Baseline 385 pairs to 93 pairs</p>
+                    <p class="text-[11px] text-emerald-600 font-semibold mt-1">Avg. Baseline 365 pairs to 88 pairs</p>
                 </div>
             </div>
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
-                <div class="w-14 h-14 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl shrink-0">
-                    <i class="fa-solid fa-rotate"></i>
-                </div>
+                <div class="w-14 h-14 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-rotate"></i></div>
                 <div>
                     <span class="text-2xl font-bold text-corporate-dark block">50%</span>
                     <h4 class="font-semibold text-corporate-dark text-sm">Shorted Lead Time</h4>
@@ -299,9 +248,7 @@
                 </div>
             </div>
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
-                <div class="w-14 h-14 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0">
-                    <i class="fa-solid fa-award"></i>
-                </div>
+                <div class="w-14 h-14 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-award"></i></div>
                 <div>
                     <span class="text-base font-bold text-corporate-dark block">High Standards</span>
                     <h4 class="font-semibold text-corporate-dark text-sm">Production Readiness</h4>
@@ -309,25 +256,21 @@
                 </div>
             </div>
             <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
-                <div class="w-14 h-14 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl shrink-0">
-                    <i class="fa-solid fa-boxes-packing"></i>
-                </div>
+                <div class="w-14 h-14 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-boxes-packing"></i></div>
                 <div>
                     <span class="text-base font-bold text-corporate-dark block">Systematic</span>
                     <h4 class="font-semibold text-corporate-dark text-sm">Better Inventory Control</h4>
                     <p class="text-xs text-corporate-muted">More controlled pallet stock management.</p>
                 </div>
             </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
-                <div class="w-14 h-14 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl shrink-0">
-                    <i class="fa-solid fa-barcode"></i>
-                </div>
-                <div>
-                    <span class="text-base font-bold text-corporate-dark block">Digital Tracking</span>
-                    <h4 class="font-semibold text-corporate-dark text-sm">Barcode Traceability</h4>
-                    <p class="text-xs text-corporate-muted">Rapid pallet unit tracing via barcode scans.</p>
-                </div>
-            </div>
+           <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-5">
+    <div class="w-14 h-14 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-qrcode"></i></div>
+    <div>
+        <span class="text-base font-bold text-corporate-dark block">Digital Tracking</span>
+        <h4 class="font-semibold text-corporate-dark text-sm">QR Code Traceability</h4>
+        <p class="text-xs text-corporate-muted">Rapid pallet unit tracing via QR code scans.</p>
+    </div>
+</div>
         </div>
     </section>
 
@@ -335,59 +278,41 @@
     <section id="workflow" class="py-20 bg-white border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <h2 class="text-3xl font-bold tracking-tight text-corporate-dark">Setup Center Workflow</h2>
+                <h2 class="text-3xl font-bold tracking-tight text-corporate-dark">Workflow</h2>
                 <p class="text-corporate-muted">Systematic 5-step workflow from digital planning to storage.</p>
             </div>
 
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4 overflow-x-auto py-4 max-w-6xl mx-auto">
                 <div onclick="openWorkflowModal(1)" class="w-full lg:w-1/5 bg-corporate-light hover:bg-blue-50 border border-slate-200 hover:border-corporate-blue p-5 rounded-2xl text-center space-y-3 cursor-pointer transition-all shadow-sm group relative">
-                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-pen-ruler"></i>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-pen-ruler"></i></div>
                     <span class="text-xs font-bold text-corporate-blue block">STEP 01</span>
                     <h4 class="text-xs font-semibold text-corporate-dark">Digital Pallet Design</h4>
                     <span class="inline-block text-[10px] text-corporate-muted bg-white px-2 py-0.5 rounded-full border border-slate-200">View Details <i class="fa-solid fa-arrow-right text-[8px]"></i></span>
                 </div>
-
                 <div class="hidden lg:flex text-corporate-muted text-lg"><i class="fa-solid fa-chevron-right"></i></div>
-
                 <div onclick="openWorkflowModal(2)" class="w-full lg:w-1/5 bg-corporate-light hover:bg-blue-50 border border-slate-200 hover:border-corporate-blue p-5 rounded-2xl text-center space-y-3 cursor-pointer transition-all shadow-sm group relative">
-                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-scissors"></i>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-scissors"></i></div>
                     <span class="text-xs font-bold text-corporate-blue block">STEP 02</span>
                     <h4 class="text-xs font-semibold text-corporate-dark">Cut Mica Pallet</h4>
                     <span class="inline-block text-[10px] text-corporate-muted bg-white px-2 py-0.5 rounded-full border border-slate-200">View Details <i class="fa-solid fa-arrow-right text-[8px]"></i></span>
                 </div>
-
                 <div class="hidden lg:flex text-corporate-muted text-lg"><i class="fa-solid fa-chevron-right"></i></div>
-
                 <div onclick="openWorkflowModal(3)" class="w-full lg:w-1/5 bg-corporate-light hover:bg-blue-50 border border-slate-200 hover:border-corporate-blue p-5 rounded-2xl text-center space-y-3 cursor-pointer transition-all shadow-sm group relative">
-                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-hammer"></i>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-hammer"></i></div>
                     <span class="text-xs font-bold text-corporate-blue block">STEP 03</span>
                     <h4 class="text-xs font-semibold text-corporate-dark">Pallet Assembly</h4>
                     <span class="inline-block text-[10px] text-corporate-muted bg-white px-2 py-0.5 rounded-full border border-slate-200">View Details <i class="fa-solid fa-arrow-right text-[8px]"></i></span>
                 </div>
-
                 <div class="hidden lg:flex text-corporate-muted text-lg"><i class="fa-solid fa-chevron-right"></i></div>
-
                 <div onclick="openWorkflowModal(4)" class="w-full lg:w-1/5 bg-corporate-light hover:bg-blue-50 border border-slate-200 hover:border-corporate-blue p-5 rounded-2xl text-center space-y-3 cursor-pointer transition-all shadow-sm group relative">
-                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-screwdriver-wrench"></i>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-screwdriver-wrench"></i></div>
                     <span class="text-xs font-bold text-corporate-blue block">STEP 04</span>
                     <h4 class="text-xs font-semibold text-corporate-dark">Pallet Setup</h4>
                     <span class="inline-block text-[10px] text-corporate-muted bg-white px-2 py-0.5 rounded-full border border-slate-200">View Details <i class="fa-solid fa-arrow-right text-[8px]"></i></span>
                 </div>
-
                 <div class="hidden lg:flex text-corporate-muted text-lg"><i class="fa-solid fa-chevron-right"></i></div>
-
                 <div onclick="openWorkflowModal(5)" class="w-full lg:w-1/5 bg-corporate-light hover:bg-blue-50 border border-slate-200 hover:border-corporate-blue p-5 rounded-2xl text-center space-y-3 cursor-pointer transition-all shadow-sm group relative">
-                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all">
-                        <i class="fa-solid fa-warehouse"></i>
-                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-white text-corporate-blue shadow-sm mx-auto flex items-center justify-center font-bold text-sm group-hover:bg-corporate-blue group-hover:text-white transition-all"><i class="fa-solid fa-warehouse"></i></div>
                     <span class="text-xs font-bold text-corporate-blue block">STEP 05</span>
                     <h4 class="text-xs font-semibold text-corporate-dark">Storage</h4>
                     <span class="inline-block text-[10px] text-corporate-muted bg-white px-2 py-0.5 rounded-full border border-slate-200">View Details <i class="fa-solid fa-arrow-right text-[8px]"></i></span>
@@ -399,30 +324,17 @@
     <!-- Workflow Detail Modal Pop-up -->
     <div id="workflow-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in duration-200">
-            <button onclick="closeWorkflowModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-corporate-dark transition-colors cursor-pointer z-10">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <button onclick="closeWorkflowModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-corporate-dark transition-colors cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
             <div class="space-y-4">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-corporate-blue text-xs font-semibold" id="modal-step-badge">
-                    STEP 01
-                </div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-corporate-blue text-xs font-semibold" id="modal-step-badge">STEP 01</div>
                 <h3 id="modal-title" class="text-2xl font-bold text-corporate-dark">Digital Pallet Design</h3>
-                
                 <div onclick="zoomWorkflowImage()" class="relative rounded-xl overflow-hidden bg-slate-100 h-56 border border-slate-200 flex items-center justify-center cursor-pointer group">
                     <img id="modal-image" src="img/workflow-1.jpeg" alt="Workflow Step Detail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1.5">
-                        <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom Photo
-                    </div>
+                    <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1.5"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom Photo</div>
                 </div>
-
-                <p id="modal-desc" class="text-sm text-corporate-muted leading-relaxed">
-                    Detailed explanation and standard operating procedures for this workflow step will appear here once configured.
-                </p>
-
+                <p id="modal-desc" class="text-sm text-corporate-muted leading-relaxed">Detailed explanation and standard operating procedures for this workflow step will appear here once configured.</p>
                 <div class="pt-4 border-t border-slate-100 flex justify-end">
-                    <button onclick="closeWorkflowModal()" class="px-5 py-2.5 bg-corporate-dark hover:bg-slate-800 text-white rounded-xl text-sm font-semibold transition-all cursor-pointer">
-                        Close
-                    </button>
+                    <button onclick="closeWorkflowModal()" class="px-5 py-2.5 bg-corporate-dark hover:bg-slate-800 text-white rounded-xl text-sm font-semibold transition-all cursor-pointer">Close</button>
                 </div>
             </div>
         </div>
@@ -431,32 +343,22 @@
     <!-- Area Detail Popup Modal -->
     <div id="area-detail-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in duration-200">
-            <button onclick="closeAreaDetailModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-corporate-dark transition-colors cursor-pointer z-10">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <button onclick="closeAreaDetailModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-corporate-dark transition-colors cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
             <div class="space-y-4">
                 <div class="flex items-center justify-between">
-                    <div id="area-detail-icon" class="w-10 h-10 rounded-xl bg-blue-50 text-corporate-blue flex items-center justify-center text-base">
-                        <i class="fa-solid fa-door-open"></i>
-                    </div>
+                    <div id="area-detail-icon" class="w-10 h-10 rounded-xl bg-blue-50 text-corporate-blue flex items-center justify-center text-base"><i class="fa-solid fa-door-open"></i></div>
                     <span id="area-detail-badge" class="px-2.5 py-1 rounded-full bg-blue-50 text-corporate-blue font-bold text-xs">01</span>
                 </div>
                 <h3 id="area-detail-title" class="text-xl font-bold text-corporate-dark">Area Title</h3>
-                <p id="area-detail-desc" class="text-xs text-corporate-muted leading-relaxed">
-                    Description goes here...
-                </p>
+                <p id="area-detail-desc" class="text-xs text-corporate-muted leading-relaxed">Description goes here...</p>
                 <div class="pt-2">
                     <div onclick="openZoomPhoto()" class="relative rounded-xl overflow-hidden h-44 bg-slate-100 border border-slate-200 cursor-pointer group">
                         <img id="area-detail-img" src="" alt="Area Photo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1.5">
-                            <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom Photo
-                        </div>
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-semibold gap-1.5"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom Photo</div>
                     </div>
                 </div>
                 <div class="pt-3 border-t border-slate-100 flex justify-end">
-                    <button onclick="closeAreaDetailModal()" class="px-5 py-2 bg-corporate-dark hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-all cursor-pointer">
-                        Close
-                    </button>
+                    <button onclick="closeAreaDetailModal()" class="px-5 py-2 bg-corporate-dark hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-all cursor-pointer">Close</button>
                 </div>
             </div>
         </div>
@@ -465,18 +367,14 @@
     <!-- Area & Workflow Image Zoom Modal Pop-up -->
     <div id="area-img-modal" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl max-w-2xl w-full p-6 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in duration-200">
-            <button onclick="closeAreaImgModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-corporate-dark transition-colors cursor-pointer z-10">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+            <button onclick="closeAreaImgModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-corporate-dark transition-colors cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
             <div class="space-y-4">
                 <h3 id="area-modal-title" class="text-xl font-bold text-corporate-dark">Photo Detail</h3>
                 <div class="rounded-2xl overflow-hidden bg-slate-100 max-h-[70vh] border border-slate-200 flex items-center justify-center">
                     <img id="area-modal-image" src="" alt="Zoomed Photo" class="w-full h-auto max-h-[65vh] object-contain">
                 </div>
                 <div class="flex justify-end pt-2">
-                    <button onclick="closeAreaImgModal()" class="px-5 py-2 bg-corporate-dark hover:bg-slate-800 text-white rounded-xl text-sm font-semibold transition-all cursor-pointer">
-                        Close
-                    </button>
+                    <button onclick="closeAreaImgModal()" class="px-5 py-2 bg-corporate-dark hover:bg-slate-800 text-white rounded-xl text-sm font-semibold transition-all cursor-pointer">Close</button>
                 </div>
             </div>
         </div>
@@ -485,11 +383,10 @@
     <!-- 6. Setup Center Area & Interactive Facility Layout Section -->
     <section id="areas" class="py-20 max-w-7xl mx-auto px-6">
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <h2 class="text-3xl font-bold tracking-tight text-corporate-dark">Setup Center Work Areas</h2>
+            <h2 class="text-3xl font-bold tracking-tight text-corporate-dark">Work Areas</h2>
             <p class="text-corporate-muted">Explore facility layout and dedicated operational zones.</p>
         </div>
 
-        <!-- Facility Layout Overview -->
         <div class="mb-14 bg-white p-4 sm:p-6 rounded-3xl border border-slate-200 shadow-sm max-w-5xl mx-auto">
             <div class="flex items-center justify-between mb-4 px-2">
                 <div>
@@ -500,9 +397,8 @@
             </div>
             
             <div class="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 shadow-inner group">
-                <img src="img/Layout.png" alt="Setup Center Facility Layout" class="w-full h-[400px] sm:h-[520px] object-cover object-center mx-auto">
+                <img src="img/Layout.png" alt="Facility Layout" class="w-full h-[400px] sm:h-[520px] object-cover object-center mx-auto">
                 
-                <!-- 7 Tombol Nomor Interaktif -->
                 <button onclick="openAreaPopup(1)" class="absolute top-[52%] left-[16%] w-8 h-8 rounded-full bg-corporate-blue text-white font-bold text-xs flex items-center justify-center shadow-lg hover:scale-110 hover:animate-bounce transition-transform cursor-pointer border-2 border-white" title="1. Meeting Room">1</button>
                 <button onclick="openAreaPopup(2)" class="absolute top-[32%] left-[28%] w-8 h-8 rounded-full bg-corporate-blue text-white font-bold text-xs flex items-center justify-center shadow-lg hover:scale-110 hover:animate-bounce transition-transform cursor-pointer border-2 border-white" title="2. Chief Office Room">2</button>
                 <button onclick="openAreaPopup(3)" class="absolute top-[65%] left-[28%] w-8 h-8 rounded-full bg-corporate-blue text-white font-bold text-xs flex items-center justify-center shadow-lg hover:scale-110 hover:animate-bounce transition-transform cursor-pointer border-2 border-white" title="3. Pallet Design Room">3</button>
@@ -528,9 +424,7 @@
                         <h3 id="stat-ordered" class="text-3xl font-bold text-corporate-dark mt-1">0</h3>
                         <span class="text-xs text-corporate-blue font-semibold mt-1 inline-block"><i class="fa-solid fa-clipboard-list"></i> Status: Ordered</span>
                     </div>
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-corporate-blue flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-clipboard-list"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-corporate-blue flex items-center justify-center text-lg"><i class="fa-solid fa-clipboard-list"></i></div>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
@@ -538,9 +432,7 @@
                         <h3 id="stat-picked" class="text-3xl font-bold text-corporate-dark mt-1">0</h3>
                         <span class="text-xs text-emerald-600 font-semibold mt-1 inline-block"><i class="fa-solid fa-check"></i> Status: Picked Up</span>
                     </div>
-                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-truck-ramp-box"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-truck-ramp-box"></i></div>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
@@ -548,9 +440,7 @@
                         <h3 id="stat-borrowed" class="text-3xl font-bold text-corporate-dark mt-1">0</h3>
                         <span class="text-xs text-amber-600 font-semibold mt-1 inline-block"><i class="fa-solid fa-clock"></i> Status: Borrowed</span>
                     </div>
-                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-hand-holding"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg"><i class="fa-solid fa-hand-holding"></i></div>
                 </div>
                 <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
                     <div>
@@ -558,15 +448,13 @@
                         <h3 id="stat-returned" class="text-3xl font-bold text-corporate-dark mt-1">0</h3>
                         <span class="text-xs text-indigo-600 font-semibold mt-1 inline-block"><i class="fa-solid fa-rotate-left"></i> Status: Returned</span>
                     </div>
-                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg">
-                        <i class="fa-solid fa-box-archive"></i>
-                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-box-archive"></i></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. Real-Time Tracking Section (WITH FILTER SEARCH BAR) -->
+    <!-- 7. Real-Time Tracking Section -->
     <section id="inventory" class="py-16 max-w-[99%] mx-auto px-2 sm:px-4">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
             <div>
@@ -574,7 +462,6 @@
                 <p class="text-xs text-corporate-muted mt-1">Live monitoring of pallet transactions, status, progress, and location logs.</p>
             </div>
             <div class="flex flex-wrap items-center gap-3 self-start md:self-auto">
-                <!-- Search Input untuk Barcode, Model, dan Status -->
                 <div class="relative min-w-[260px] sm:min-w-[320px]">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-corporate-muted text-xs"></i>
                     <input type="text" id="inventory-search-input" onkeyup="filterInventoryTable()" placeholder="Search Barcode, Model, or Status..." class="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs text-corporate-dark focus:outline-none focus:border-corporate-blue focus:ring-1 focus:ring-corporate-blue transition-all shadow-sm">
@@ -587,12 +474,12 @@
         </div>
 
         <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden w-full">
-            <div class="w-full">
+            <div class="w-full overflow-x-auto">
                 <table class="w-full text-left border-collapse table-fixed">
                     <thead>
                         <tr class="bg-corporate-light border-b border-slate-200 text-[9px] font-semibold text-corporate-muted uppercase tracking-tight">
                             <th class="py-2.5 px-1.5 w-[7%]">Barcode</th>
-                            <th class="py-2.5 px-1.5 w-[9%]">Barcode Image</th>
+                            <th class="py-2.5 px-1.5 w-[6%] text-center">QR Code</th>
                             <th class="py-2.5 px-1.5 w-[6%]">Model</th>
                             <th class="py-2.5 px-1.5 w-[3.5%]">Size</th>
                             <th class="py-2.5 px-1.5 w-[7%]">Process</th>
@@ -622,18 +509,70 @@
         </div>
     </section>
 
-    <!-- 9. Modern Professional Corporate Footer -->
+    <!-- MODAL POP-UP DETAIL & FOTO PALLET APPSHEET -->
+    <div id="pallet-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closePalletModal()" class="absolute top-5 right-5 w-9 h-9 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center text-corporate-dark transition-colors cursor-pointer z-10"><i class="fa-solid fa-xmark"></i></button>
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <span id="modal-barcode" class="font-mono text-xs font-bold text-corporate-blue bg-blue-50 px-3 py-1 rounded-full">COS-0000</span>
+                    <span id="modal-status" class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-corporate-blue">Ordered</span>
+                </div>
+
+                <div onclick="openZoomImageModal()" title="Click to zoom image" class="relative rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 h-64 flex flex-col items-center justify-center p-2 cursor-pointer group">
+                    <img id="modal-pallet-img" src="" alt="Pallet Photo" class="w-full h-full object-cover hidden rounded-xl group-hover:scale-105 transition-transform duration-300">
+                    <div id="modal-no-photo" class="text-center space-y-2 p-4">
+                        <i class="fa-solid fa-image-slash text-3xl text-slate-300"></i>
+                        <span class="block text-xs text-slate-400 font-medium">Foto pallet belum di-upload via AppSheet.</span>
+                    </div>
+                    <div id="modal-zoom-overlay" class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity hidden items-center justify-center text-white text-xs font-semibold gap-1.5 rounded-xl">
+                        <i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom Photo
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2 bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-[11px]">
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase font-semibold">Model:</span> 
+                        <strong id="detail-model" class="text-slate-800 font-semibold block truncate">-</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase font-semibold">Size:</span> 
+                        <strong id="detail-size" class="text-slate-800 font-semibold block truncate">-</strong>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block text-[9px] uppercase font-semibold">Process:</span> 
+                        <strong id="detail-process" class="text-slate-800 font-semibold block truncate">-</strong>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex justify-end">
+                    <button onclick="closePalletModal()" class="px-5 py-2 bg-corporate-dark hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-all cursor-pointer">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL ZOOM FOTO PALLET FULLSCREEN -->
+    <div id="zoom-image-modal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="relative max-w-4xl w-full p-2 bg-white rounded-3xl shadow-2xl border border-slate-700">
+            <button onclick="closeZoomImageModal()" class="absolute -top-3 -right-3 w-10 h-10 bg-white hover:bg-slate-100 rounded-full flex items-center justify-center text-slate-800 shadow-lg font-bold transition-colors cursor-pointer z-10"><i class="fa-solid fa-xmark text-lg"></i></button>
+            <div class="rounded-2xl overflow-hidden bg-slate-950 max-h-[80vh] flex items-center justify-center">
+                <img id="zoomed-pallet-img" src="" alt="Zoomed Pallet Photo" class="w-full h-auto max-h-[78vh] object-contain">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer class="bg-corporate-dark text-slate-300 pt-16 pb-8 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
-                <!-- Column 1: Brand Info -->
                 <div class="lg:col-span-2 space-y-4">
                     <div class="flex items-center gap-3">
                         <div class="w-10 h-10 rounded-xl bg-corporate-blue flex items-center justify-center text-white shadow-md">
                             <i class="fa-solid fa-layer-group text-lg"></i>
                         </div>
                         <div>
-                            <span class="font-bold text-lg text-white tracking-tight">CoS Setup Center</span>
+                            <span class="font-bold text-lg text-white tracking-tight">CoS Development Center</span>
                             <span class="block text-xs text-slate-400 font-medium">Manufacturing Digital Portal</span>
                         </div>
                     </div>
@@ -646,30 +585,27 @@
                     </div>
                 </div>
 
-                <!-- Column 2: Quick Links -->
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold uppercase tracking-wider text-white">Quick Navigation</h4>
                     <ul class="space-y-2 text-xs text-slate-400">
                         <li><a href="#background" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[9px] text-corporate-blue"></i> Background</a></li>
                         <li><a href="#objectives" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[9px] text-corporate-blue"></i> Objectives</a></li>
                         <li><a href="#benefits" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[9px] text-corporate-blue"></i> Key Benefits</a></li>
-                        <li><a href="#workflow" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[9px] text-corporate-blue"></i> Setup Workflow</a></li>
+                        <li><a href="#workflow" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[9px] text-corporate-blue"></i> Workflow</a></li>
                         <li><a href="#areas" class="hover:text-white transition-colors flex items-center gap-1.5"><i class="fa-solid fa-chevron-right text-[9px] text-corporate-blue"></i> Work Areas</a></li>
                     </ul>
                 </div>
 
-                <!-- Column 3: Features & System -->
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold uppercase tracking-wider text-white">System Features</h4>
                     <ul class="space-y-2 text-xs text-slate-400">
-                        <li class="flex items-center gap-2"><i class="fa-solid fa-barcode text-slate-500"></i> Barcode Traceability</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-qrcode text-slate-500"></i> QR Code Traceability</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-clock-rotate-left text-slate-500"></i> Live Transaction Logs</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-map-location-dot text-slate-500"></i> Location Tracking</li>
                         <li class="flex items-center gap-2"><i class="fa-solid fa-chart-pie text-slate-500"></i> Analytics Dashboard</li>
                     </ul>
                 </div>
 
-                <!-- Column 4: Operational Standard -->
                 <div class="space-y-3">
                     <h4 class="text-xs font-bold uppercase tracking-wider text-white">Excellence Standards</h4>
                     <div class="p-3 bg-slate-800/50 rounded-xl border border-slate-800 space-y-2">
@@ -681,10 +617,9 @@
                 </div>
             </div>
 
-            <!-- Bottom Credit Bar -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
                 <div class="flex items-center gap-2">
-                    <span class="font-medium text-white">CoS Setup Center System</span>
+                    <span class="font-medium text-white">CoS Development Center System</span>
                     <span class="text-slate-600">|</span>
                     <span>&copy; 2026 Manufacturing Excellence</span>
                 </div>
@@ -695,165 +630,95 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Engine -->
     <script>
-        // Data Area Sesuai Nama File dan Ekstensi Persis di Folder img/
         const areasData = {
-            1: {
-                title: "Meeting Room",
-                badge: "01",
-                icon: "fa-users-rectangle",
-                desc: "A central hub for project planning, team collaboration, and operational coordination.",
-                image: "img/area-1.jpeg"
-            },
-            2: {
-                title: "Chief Office Room",
-                badge: "02",
-                icon: "fa-user-tie",
-                desc: "A private office designed to support the Chief's daily activities, including operational management, strategic planning, meetings, and confidential discussions while providing a productive and organized workspace.",
-                image: "img/area-2.jpeg"
-            },
-            3: {
-                title: "Pallet Design Room",
-                badge: "03",
-                icon: "fa-drafting-compass",
-                desc: "A workspace where digital pallet designs and setup documentation are created, reviewed, and prepared before physical pallet fabrication begins.",
-                image: "img/area-3.jpeg"
-            },
-            4: {
-                title: "Pallet Storage Area",
-                badge: "04",
-                icon: "fa-warehouse",
-                desc: "A centralized storage area designed to organize validated pallets systematically, ensuring easy access, full traceability, and production readiness.",
-                image: "img/area-4.jpeg"
-            },
-            5: {
-                title: "Pallet Setup Area",
-                badge: "05",
-                icon: "fa-gears",
-                desc: "A dedicated workspace where pallets are prepared and configured before being delivered to the production line, ensuring faster and more efficient model changeovers.",
-                image: "img/area-5.jpeg"
-            },
-            6: {
-                title: "Pallet Assembly Area",
-                badge: "06",
-                icon: "fa-puzzle-piece",
-                desc: "A standardized workspace where pallet components are assembled into complete, production-ready pallets based on approved design specifications.",
-                image: "img/area-6.png"
-            },
-            7: {
-                title: "Cut Mica Pallet Area",
-                badge: "07",
-                icon: "fa-scissors",
-                desc: "A dedicated fabrication area where mica materials are precisely cut into pallet components according to approved design specifications.",
-                image: "img/area-7.png"
-            }
+            1: { title: "Meeting Room", badge: "01", icon: "fa-users-rectangle", desc: "A central hub for project planning, team collaboration, and operational coordination.", image: "img/area-1.jpeg" },
+            2: { title: "Chief Office Room", badge: "02", icon: "fa-user-tie", desc: "A private office designed to support the Chief's daily activities, including operational management, strategic planning, meetings, and confidential discussions.", image: "img/area-2.jpeg" },
+            3: { title: "Pallet Design Room", badge: "03", icon: "fa-drafting-compass", desc: "A workspace where digital pallet designs and setup documentation are created, reviewed, and prepared before physical pallet fabrication begins.", image: "img/area-3.jpeg" },
+            4: { title: "Pallet Storage Area", badge: "04", icon: "fa-warehouse", desc: "A centralized storage area designed to organize validated pallets systematically, ensuring easy access, full traceability, and production readiness.", image: "img/area-4.jpeg" },
+            5: { title: "Pallet Setup Area", badge: "05", icon: "fa-gears", desc: "A dedicated workspace where pallets are prepared and configured before being delivered to the production line, ensuring faster and more efficient model changeovers.", image: "img/area-5.jpeg" },
+            6: { title: "Pallet Assembly Area", badge: "06", icon: "fa-puzzle-piece", desc: "A standardized workspace where pallet components are assembled into complete, production-ready pallets based on approved design specifications.", image: "img/area-6.png" },
+            7: { title: "Cut Mica Pallet Area", badge: "07", icon: "fa-scissors", desc: "A dedicated fabrication area where mica materials are precisely cut into pallet components according to approved design specifications.", image: "img/area-7.png" }
         };
 
         function openAreaPopup(areaNum) {
             const data = areasData[areaNum];
             if (!data) return;
-
             document.getElementById('area-detail-title').innerText = data.title;
             document.getElementById('area-detail-badge').innerText = data.badge;
             document.getElementById('area-detail-desc').innerText = data.desc;
             document.getElementById('area-detail-img').src = data.image;
             document.getElementById('area-detail-icon').innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
-
             document.getElementById('area-detail-modal').classList.remove('hidden');
         }
 
-        function closeAreaDetailModal() {
-            document.getElementById('area-detail-modal').classList.add('hidden');
-        }
-
+        function closeAreaDetailModal() { document.getElementById('area-detail-modal').classList.add('hidden'); }
         function openZoomPhoto() {
-            const currentImgSrc = document.getElementById('area-detail-img').src;
-            const currentTitle = document.getElementById('area-detail-title').innerText;
-            
-            document.getElementById('area-modal-title').innerText = currentTitle + " Detail";
-            document.getElementById('area-modal-image').src = currentImgSrc;
+            document.getElementById('area-modal-title').innerText = document.getElementById('area-detail-title').innerText + " Detail";
+            document.getElementById('area-modal-image').src = document.getElementById('area-detail-img').src;
             document.getElementById('area-img-modal').classList.remove('hidden');
         }
-
         function zoomWorkflowImage() {
-            const currentImgSrc = document.getElementById('modal-image').src;
-            const currentTitle = document.getElementById('modal-title').innerText;
-            
-            document.getElementById('area-modal-title').innerText = currentTitle + " Detail";
-            document.getElementById('area-modal-image').src = currentImgSrc;
+            document.getElementById('area-modal-title').innerText = document.getElementById('modal-title').innerText + " Detail";
+            document.getElementById('area-modal-image').src = document.getElementById('modal-image').src;
             document.getElementById('area-img-modal').classList.remove('hidden');
         }
+        function closeAreaImgModal() { document.getElementById('area-img-modal').classList.add('hidden'); }
 
-        function closeAreaImgModal() {
-            document.getElementById('area-img-modal').classList.add('hidden');
-        }
-
-        // Data 5 Step Workflow Sesuai Nama File di Explorer
         const workflowData = {
-            1: {
-                title: "Digital Pallet Design",
-                badge: "STEP 01",
-                image: "img/workflow-1.jpeg",
-                desc: "Create digital pallet design and prepare setup documentation."
-            },
-            2: {
-                title: "Cut Mica Pallet",
-                badge: "STEP 02",
-                image: "img/workflow-2.png",
-                desc: "Cut mica materials according to the approved pallet design."
-            },
-            3: {
-                title: "Pallet Assembly",
-                badge: "STEP 03",
-                image: "img/workflow-3.png",
-                desc: "Assemble pallet components based on standard specifications."
-            },
-            4: {
-                title: "Pallet Setup",
-                badge: "STEP 04",
-                image: "img/workflow-4.jpg",
-                desc: "Install programs and perform pallet setup on the machine."
-            },
-            5: {
-                title: "Storage",
-                badge: "STEP 05",
-                image: "img/workflow-5.jpeg",
-                desc: "Store validated pallets systematically for future production requirements."
-            }
+            1: { title: "Digital Pallet Design", badge: "STEP 01", image: "img/workflow-1.jpeg", desc: "Create digital pallet design and prepare setup documentation." },
+            2: { title: "Cut Mica Pallet", badge: "STEP 02", image: "img/workflow-2.png", desc: "Cut mica materials according to the approved pallet design." },
+            3: { title: "Pallet Assembly", badge: "STEP 03", image: "img/workflow-3.png", desc: "Assemble pallet components based on standard specifications." },
+            4: { title: "Pallet Setup", badge: "STEP 04", image: "img/workflow-4.jpg", desc: "Install programs and perform pallet setup on the machine." },
+            5: { title: "Storage", badge: "STEP 05", image: "img/workflow-5.jpeg", desc: "Store validated pallets systematically for future production requirements." }
         };
 
         function openWorkflowModal(stepNum) {
             const data = workflowData[stepNum];
             if (!data) return;
-
             document.getElementById('modal-step-badge').innerText = data.badge;
             document.getElementById('modal-title').innerText = data.title;
             document.getElementById('modal-image').src = data.image;
             document.getElementById('modal-desc').innerText = data.desc;
-
             document.getElementById('workflow-modal').classList.remove('hidden');
         }
-
-        function closeWorkflowModal() {
-            document.getElementById('workflow-modal').classList.add('hidden');
-        }
+        function closeWorkflowModal() { document.getElementById('workflow-modal').classList.add('hidden'); }
 
         window.addEventListener('click', function(e) {
-            const workflowModal = document.getElementById('workflow-modal');
-            const areaDetailModal = document.getElementById('area-detail-modal');
-            const areaImgModal = document.getElementById('area-img-modal');
-
-            if (e.target === workflowModal) closeWorkflowModal();
-            if (e.target === areaDetailModal) closeAreaDetailModal();
-            if (e.target === areaImgModal) closeAreaImgModal();
+            if (e.target === document.getElementById('workflow-modal')) closeWorkflowModal();
+            if (e.target === document.getElementById('area-detail-modal')) closeAreaDetailModal();
+            if (e.target === document.getElementById('area-img-modal')) closeAreaImgModal();
+            if (e.target === document.getElementById('pallet-modal')) closePalletModal();
+            if (e.target === document.getElementById('zoom-image-modal')) closeZoomImageModal();
         });
 
-        // Global Variable untuk menyimpan data transaksi hasil fetch API
+        // Global Variables
         let cachedInventoryData = [];
+        const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbz3S0KuYPhuEBKhNor0ldetkHdklEQQDUCX6q6HyXwHhRGbL0uzUPwmyWrG7I6ppK-6ew/exec?action=getMasterPallet';
 
-        // API Sheet Transaction
-        const SHEET_API_URL = 'https://sheetdb.io/api/v1/shukakdltpbuc?sheet=Transaction';
+        // Helper Validator Nilai Valid
+        const isVal = (v) => {
+            if (v === null || v === undefined) return false;
+            const s = v.toString().trim();
+            return s !== '' && s !== '-' && s !== 'null' && s !== 'undefined';
+        };
+
+        // Helper Pembaca Properti JSON Toleran
+        const getVal = (obj, keys) => {
+            if (!obj || typeof obj !== 'object') return '';
+            const objKeys = Object.keys(obj);
+            for (let target of keys) {
+                const cleanTarget = target.toLowerCase().replace(/[^a-z0-9]/g, '');
+                for (let k of objKeys) {
+                    if (k.toLowerCase().replace(/[^a-z0-9]/g, '') === cleanTarget) {
+                        const val = obj[k];
+                        return isVal(val) ? val.toString().trim() : '';
+                    }
+                }
+            }
+            return '';
+        };
 
         async function loadInventoryData() {
             const refreshIcon = document.getElementById('refresh-icon');
@@ -862,7 +727,7 @@
             refreshIcon.classList.add('fa-spin');
             
             try {
-                const response = await fetch(SHEET_API_URL);
+                const response = await fetch(SHEET_API_URL, { cache: 'no-store' });
                 const data = await response.json();
                 
                 if (!Array.isArray(data) || data.length === 0) {
@@ -872,83 +737,114 @@
                     document.getElementById('stat-picked').innerText = 0;
                     document.getElementById('stat-borrowed').innerText = 0;
                     document.getElementById('stat-returned').innerText = 0;
-                    refreshIcon.classList.remove('fa-spin');
                     return;
                 }
 
+               const validRows = data.filter(row => isVal(getVal(row, ['QR Code', 'QR', 'Barcode'])));
+                const barcodeMap = new Map();
+
+                validRows.forEach(row => {
+                    const barcodeId = getVal(row, ['QR Code', 'QR', 'Barcode']) || '';
+                    if (!barcodeId) return;
+
+                    const orderDate = getVal(row, ['Order_Date', 'Order Date']);
+                    const pickUpDate = getVal(row, ['Pick_Up_Date', 'Pick Up Date']);
+                    const palletProgress = getVal(row, ['Pallet_Progress', 'Pallet Progress']);
+                    const finishedDate = getVal(row, ['Finished_Date', 'Finished Date']);
+                    const currentLocation = getVal(row, ['Current_Location', 'Current Location', 'Location']);
+                    const borrowDate = getVal(row, ['Borrow_Date', 'Borrow Date']);
+                    const returnDate = getVal(row, ['Return_Date', 'Return Date']);
+                    const status = getVal(row, ['Status']);
+                    const requester = getVal(row, ['Last Requester', 'Requester']);
+                    const remark = getVal(row, ['Remark']);
+                    const qty = getVal(row, ['Total_Quantity', 'Total Quantity', 'Quantity']);
+                    const photo = getVal(row, ['Pallet_Photo', 'Pallet Photo', 'Photo']);
+
+                    if (!barcodeMap.has(barcodeId)) {
+                        barcodeMap.set(barcodeId, {
+                            ...row,
+                            Barcode: barcodeId,
+                            Model: getVal(row, ['Model']),
+                            Size: getVal(row, ['Size']),
+                            Process: getVal(row, ['Process']),
+                            Requester: requester,
+                            Status: status || 'Ordered',
+                            Pallet_Progress: palletProgress || '-',
+                            Current_Location: currentLocation,
+                            Remark: remark,
+                            Total_Quantity: qty || '1',
+                            Pallet_Photo: photo,
+                            Order_Date: orderDate,
+                            Finished_Date: finishedDate,
+                            Pick_Up_Date: pickUpDate,
+                            Borrow_Date: borrowDate,
+                            Return_Date: returnDate
+                        });
+                    } else {
+                        const prev = barcodeMap.get(barcodeId);
+
+                        barcodeMap.set(barcodeId, {
+                            ...prev,
+                            // Informasi Statis
+                            Model: isVal(getVal(row, ['Model'])) ? getVal(row, ['Model']) : prev.Model,
+                            Size: isVal(getVal(row, ['Size'])) ? getVal(row, ['Size']) : prev.Size,
+                            Process: isVal(getVal(row, ['Process'])) ? getVal(row, ['Process']) : prev.Process,
+                            Requester: isVal(requester) ? requester : prev.Requester,
+                            Total_Quantity: isVal(qty) ? qty : prev.Total_Quantity,
+                            Pallet_Photo: isVal(photo) ? photo : prev.Pallet_Photo,
+
+                            // STATUS TERKINI (Selalu timpa dengan transaksi paling baru jika terisi)
+                            Status: isVal(status) ? status : prev.Status,
+                            Pallet_Progress: isVal(palletProgress) ? palletProgress : prev.Pallet_Progress,
+                            Current_Location: isVal(currentLocation) ? currentLocation : prev.Current_Location,
+                            Remark: isVal(remark) ? remark : prev.Remark,
+
+                            // AKUMULASI TANGGAL HISTORI (Saling Melengkapi dari Seluruh Transaksi)
+                            Order_Date: isVal(orderDate) ? orderDate : prev.Order_Date,
+                            Finished_Date: isVal(finishedDate) ? finishedDate : prev.Finished_Date,
+                            Pick_Up_Date: isVal(pickUpDate) ? pickUpDate : prev.Pick_Up_Date,
+                            Borrow_Date: isVal(borrowDate) ? borrowDate : prev.Borrow_Date,
+                            Return_Date: isVal(returnDate) ? returnDate : prev.Return_Date
+                        });
+                    }
+                });
+
+                cachedInventoryData = Array.from(barcodeMap.values());
+
+                // Hitung Statistik Card Top Dashboard
                 let totalOrdered = 0;
                 let totalPickedUp = 0;
                 let totalBorrowed = 0;
                 let totalReturned = 0;
 
-                const barcodeMap = new Map();
+                cachedInventoryData.forEach(row => {
+                    const st = (row.Status || '').toLowerCase().trim();
 
-                data.forEach(row => {
-                    let status = (row.Status || row.status || '').trim().toLowerCase();
-
-                    if (status === 'ordered') totalOrdered++;
-                    if (status === 'picked up') totalPickedUp++;
-                    if (status === 'borrowed') totalBorrowed++;
-                    if (status === 'returned') totalReturned++;
-
-                    const barcodeId = row.Barcode || row.barcode || '';
-                    if (barcodeId) {
-                        const orderDate = row.Order_Date || row['Order Date'] || '';
-                        const pickUpDate = row.Pick_Up_Date || row['Pick Up Date'] || row['Pick_Up_Date'] || '';
-                        const palletProgress = row.Pallet_Progress || row['Pallet Progress'] || '';
-                        const finishedDate = row.Finished_Date || row['Finished Date'] || '';
-                        const currentLocation = row.Current_Location || row['Current Location'] || '';
-                        const borrowDate = row.Borrow_Date || row['Borrow Date'] || '';
-                        const returnDate = row.Return_Date || row['Return Date'] || '';
-
-                        if (!barcodeMap.has(barcodeId)) {
-                            barcodeMap.set(barcodeId, {
-                                ...row,
-                                Order_Date: orderDate,
-                                Pick_Up_Date: pickUpDate,
-                                Pallet_Progress: palletProgress,
-                                Finished_Date: finishedDate,
-                                Current_Location: currentLocation,
-                                Borrow_Date: borrowDate,
-                                Return_Date: returnDate
-                            });
-                        } else {
-                            const existingData = barcodeMap.get(barcodeId);
-                            barcodeMap.set(barcodeId, {
-                                ...row,
-                                Order_Date: orderDate || existingData.Order_Date,
-                                Pick_Up_Date: pickUpDate || existingData.Pick_Up_Date,
-                                Pallet_Progress: palletProgress || existingData.Pallet_Progress,
-                                Finished_Date: finishedDate || existingData.Finished_Date,
-                                Current_Location: currentLocation || existingData.Current_Location,
-                                Borrow_Date: borrowDate || existingData.Borrow_Date,
-                                Return_Date: returnDate || existingData.Return_Date
-                            });
-                        }
-                    }
+                    if (st === 'ordered' || isVal(row.Order_Date)) totalOrdered++;
+                    if (st === 'picked up' || isVal(row.Pick_Up_Date)) totalPickedUp++;
+                    if (st === 'borrowed' || isVal(row.Borrow_Date)) totalBorrowed++;
+                    if (st === 'returned' || isVal(row.Return_Date)) totalReturned++;
                 });
 
+                // Update UI Statistik
                 document.getElementById('stat-ordered').innerText = totalOrdered;
                 document.getElementById('stat-picked').innerText = totalPickedUp;
                 document.getElementById('stat-borrowed').innerText = totalBorrowed;
                 document.getElementById('stat-returned').innerText = totalReturned;
-
-                cachedInventoryData = Array.from(barcodeMap.values());
                 
-                // Tampilkan tabel & terapkan filter jika kolom pencarian terisi
+                // Render Tabel
                 filterInventoryTable();
 
             } catch (error) {
-                console.error('Failed to fetch spreadsheet transaction data:', error);
+                console.error('Failed to fetch transaction data:', error);
                 tableBody.innerHTML = `<tr><td colspan="16" class="py-6 text-center text-rose-500 text-xs">Failed to load data from spreadsheet server.</td></tr>`;
             } finally {
                 setTimeout(() => {
                     refreshIcon.classList.remove('fa-spin');
-                }, 500);
+                }, 300);
             }
         }
 
-        // Fungsi Render Baris Tabel
         function renderInventoryTable(items) {
             const tableBody = document.getElementById('inventory-table-body');
             tableBody.innerHTML = '';
@@ -959,66 +855,142 @@
             }
 
             items.forEach((row, index) => {
-                let rawStatus = (row.Status || row.status || '').trim();
+                let rawStatus = (row.Status || '').trim();
                 let statusColor = 'bg-slate-100 text-slate-700';
-                if (rawStatus === 'Picked Up') statusColor = 'bg-emerald-50 text-emerald-600';
-                if (rawStatus === 'Borrowed') statusColor = 'bg-amber-50 text-amber-600';
-                if (rawStatus === 'Available') statusColor = 'bg-blue-50 text-corporate-blue';
-                if (rawStatus === 'Returned') statusColor = 'bg-indigo-50 text-indigo-600';
-                if (rawStatus === 'Ordered') statusColor = 'bg-blue-50 text-corporate-blue';
+                if (rawStatus.toLowerCase() === 'picked up') statusColor = 'bg-emerald-50 text-emerald-600';
+                if (rawStatus.toLowerCase() === 'borrowed') statusColor = 'bg-amber-50 text-amber-600';
+                if (rawStatus.toLowerCase() === 'available') statusColor = 'bg-blue-50 text-corporate-blue';
+                if (rawStatus.toLowerCase() === 'returned') statusColor = 'bg-indigo-50 text-indigo-600';
+                if (rawStatus.toLowerCase() === 'ordered') statusColor = 'bg-blue-50 text-corporate-blue';
 
-                let rawProgress = (row.Pallet_Progress || row['Pallet Progress'] || '').trim();
+                let rawProgress = (row.Pallet_Progress || '-').trim();
                 let progressColor = 'bg-slate-100 text-slate-700';
                 if (rawProgress.toLowerCase() === 'ready') progressColor = 'bg-teal-50 text-teal-700 font-semibold';
                 if (rawProgress.toLowerCase() === 'in progress' || rawProgress.toLowerCase() === 'preparation') progressColor = 'bg-sky-50 text-sky-700 font-semibold';
 
-                const barcodeId = row.Barcode || row.barcode || '';
-                const directCurrentLocation = row.Current_Location || row['Current Location'] || '';
+                const barcodeId = row.Barcode || '';
 
                 const tr = document.createElement('tr');
-                tr.className = 'hover:bg-slate-50 transition-colors';
+                tr.className = 'hover:bg-blue-50/50 cursor-pointer transition-colors';
+                
+                tr.onclick = function() {
+                    openPalletModal(items[index]);
+                };
+
                 tr.innerHTML = `
                     <td class="py-2 px-1.5 font-mono font-medium text-corporate-blue break-all">${barcodeId}</td>
-                    <td class="py-2 px-1.5 text-center"><svg id="barcode-${index}" class="mx-auto max-w-full"></svg></td>
-                    <td class="py-2 px-1.5 font-semibold break-words">${row.Model || row.model || ''}</td>
-                    <td class="py-2 px-1.5">${row.Size || row.size || ''}</td>
-                    <td class="py-2 px-1.5 break-words">${row.Process || row.process || ''}</td>
-                    <td class="py-2 px-1.5 break-words">${row.Requester || row.requester || ''}</td>
-                    <td class="py-2 px-1.5 font-medium break-words">${directCurrentLocation}</td>
+                    <td class="py-2 px-1.5 text-center"><div id="qrcode-${index}" class="flex justify-center items-center"></div></td>
+                    <td class="py-2 px-1.5 font-semibold break-words">${row.Model || ''}</td>
+                    <td class="py-2 px-1.5">${row.Size || ''}</td>
+                    <td class="py-2 px-1.5 break-words">${row.Process || ''}</td>
+                    <td class="py-2 px-1.5 break-words">${row.Requester || ''}</td>
+                    <td class="py-2 px-1.5 font-medium break-words">${row.Current_Location || ''}</td>
                     <td class="py-2 px-1.5"><span class="px-1.5 py-0.5 ${statusColor} rounded-full text-[8.5px] font-semibold inline-block text-center">${rawStatus || ''}</span></td>
                     <td class="py-2 px-1.5 text-corporate-muted break-words">${row.Order_Date || ''}</td>
-                    <td class="py-2 px-1.5"><span class="px-1.5 py-0.5 ${progressColor} rounded-full text-[8.5px] inline-block text-center">${rawProgress || '-'}</span></td>
-                    <td class="py-2 px-1.5 text-corporate-muted break-words">${row.Finished_Date || row['Finished Date'] || ''}</td>
-                    <td class="py-2 px-1.5 text-corporate-muted break-words">${row.Pick_Up_Date || row['Pick Up Date'] || ''}</td>
+                    <td class="py-2 px-1.5"><span class="px-1.5 py-0.5 ${progressColor} rounded-full text-[8.5px] inline-block text-center">${rawProgress}</span></td>
+                    <td class="py-2 px-1.5 text-corporate-muted break-words">${row.Finished_Date || ''}</td>
+                    <td class="py-2 px-1.5 text-corporate-muted break-words">${row.Pick_Up_Date || ''}</td>
                     <td class="py-2 px-1.5 text-corporate-muted break-words">${row.Borrow_Date || ''}</td>
                     <td class="py-2 px-1.5 text-corporate-muted break-words">${row.Return_Date || ''}</td>
-                    <td class="py-2 px-1.5 text-center font-semibold">${row.Total_Quantity || row['Total Quantity'] || row.Quantity || '1'}</td>
-                    <td class="py-2 px-1.5"><span class="px-1 py-0.5 bg-slate-100 rounded text-[8.5px] font-medium break-words block text-center">${row.Remark || row.remark || ''}</span></td>
+                    <td class="py-2 px-1.5 text-center font-semibold">${row.Total_Quantity || '1'}</td>
+                    <td class="py-2 px-1.5"><span class="px-1 py-0.5 bg-slate-100 rounded text-[8.5px] font-medium break-words block text-center">${row.Remark || ''}</span></td>
                 `;
                 tableBody.appendChild(tr);
 
                 if (barcodeId) {
                     setTimeout(() => {
                         try {
-                            JsBarcode(`#barcode-${index}`, barcodeId, {
-                                format: "CODE128",
-                                width: 0.8,
-                                height: 22,
-                                displayValue: true,
-                                fontSize: 8,
-                                font: "monospace",
-                                lineColor: "#1E293B",
-                                margin: 0
-                            });
-                        } catch (err) {
-                            console.error("Barcode generation error");
+                            const qrContainer = document.getElementById(`qrcode-${index}`);
+                            if (qrContainer) {
+                                qrContainer.innerHTML = '';
+                                new QRCode(qrContainer, {
+                                text: barcodeId,
+                                width: 38,
+                                height: 38,
+                                colorDark: "#0F172A",
+                                colorLight: "#FFFFFF",
+                                correctLevel: QRCode.CorrectLevel.M
+                          });
                         }
-                    }, 50);
-                }
+                    } catch (err) {
+                       console.error("QR Code generation error:", err);
+                   }
+               }, 50);
+             }
             });
         }
 
-        // Fungsi Filter Real-time untuk Barcode, Model, dan Status
+        function openPalletModal(row) {
+            if (!row) return;
+
+            const barcode = row.Barcode || 'COS-0000';
+            const model = row.Model || '-';
+            const size = row.Size || '-';
+            const process = row.Process || '-';
+            const rawStatus = row.Status || 'Ordered';
+            let rawPhoto = row.Pallet_Photo || '';
+
+            document.getElementById('modal-barcode').innerText = barcode;
+            
+            const statusElem = document.getElementById('modal-status');
+            statusElem.innerText = rawStatus;
+            statusElem.className = "text-xs font-semibold px-2.5 py-0.5 rounded-full ";
+            
+            if (rawStatus.toLowerCase() === 'picked up') {
+                statusElem.className += "bg-emerald-50 text-emerald-600";
+            } else if (rawStatus.toLowerCase() === 'borrowed') {
+                statusElem.className += "bg-amber-50 text-amber-600";
+            } else if (rawStatus.toLowerCase() === 'returned') {
+                statusElem.className += "bg-indigo-50 text-indigo-600";
+            } else {
+                statusElem.className += "bg-blue-50 text-corporate-blue";
+            }
+
+            document.getElementById('detail-model').innerText = model;
+            document.getElementById('detail-size').innerText = size;
+            document.getElementById('detail-process').innerText = process;
+
+            const imgElem = document.getElementById('modal-pallet-img');
+            const noPhoto = document.getElementById('modal-no-photo');
+            const zoomOverlay = document.getElementById('modal-zoom-overlay');
+
+            if (rawPhoto && rawPhoto.trim() !== '') {
+                let formattedUrl = rawPhoto.trim();
+
+                if (!formattedUrl.startsWith('http://') && !formattedUrl.startsWith('https://')) {
+                    const encodedPath = encodeURIComponent(formattedUrl);
+                    formattedUrl = `https://www.appsheet.com/template/gettablefileurl?appName=PalletManagement-69625899&tableName=Transaction&fileName=${encodedPath}`;
+                } else if (formattedUrl.includes('drive.google.com') && formattedUrl.includes('id=')) {
+                    const fileId = formattedUrl.split('id=')[1].split('&')[0];
+                    formattedUrl = `https://lh3.googleusercontent.com/d/${fileId}`;
+                }
+
+                imgElem.src = formattedUrl;
+                document.getElementById('zoomed-pallet-img').src = formattedUrl;
+                
+                imgElem.classList.remove('hidden');
+                noPhoto.classList.add('hidden');
+                zoomOverlay.classList.remove('hidden');
+                zoomOverlay.classList.add('flex');
+            } else {
+                imgElem.classList.add('hidden');
+                noPhoto.classList.remove('hidden');
+                zoomOverlay.classList.add('hidden');
+                zoomOverlay.classList.remove('flex');
+            }
+
+            document.getElementById('pallet-modal').classList.remove('hidden');
+        }
+
+        function closePalletModal() { document.getElementById('pallet-modal').classList.add('hidden'); }
+        function openZoomImageModal() {
+            const currentImgSrc = document.getElementById('modal-pallet-img').src;
+            if (currentImgSrc && !document.getElementById('modal-pallet-img').classList.contains('hidden')) {
+                document.getElementById('zoom-image-modal').classList.remove('hidden');
+            }
+        }
+        function closeZoomImageModal() { document.getElementById('zoom-image-modal').classList.add('hidden'); }
+
         function filterInventoryTable() {
             const query = (document.getElementById('inventory-search-input').value || '').toLowerCase().trim();
             
@@ -1028,9 +1000,9 @@
             }
 
             const filtered = cachedInventoryData.filter(row => {
-                const barcode = (row.Barcode || row.barcode || '').toLowerCase();
-                const model = (row.Model || row.model || '').toLowerCase();
-                const status = (row.Status || row.status || '').toLowerCase();
+                const barcode = (row.Barcode || '').toLowerCase();
+                const model = (row.Model || '').toLowerCase();
+                const status = (row.Status || '').toLowerCase();
 
                 return barcode.includes(query) || model.includes(query) || status.includes(query);
             });
@@ -1038,8 +1010,12 @@
             renderInventoryTable(filtered);
         }
 
-        window.addEventListener('DOMContentLoaded', loadInventoryData);
+        window.addEventListener('DOMContentLoaded', () => {
+    loadInventoryData();
+    setInterval(() => {
+        loadInventoryData();
+    }, 10000);
+});
     </script>
-
 </body>
 </html>
